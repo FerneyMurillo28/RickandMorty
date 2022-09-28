@@ -1,0 +1,54 @@
+*{
+  background-color: black;
+  text-align: center;
+  margin: auto;
+}
+
+@font-face{
+  font-family: RyM;
+  src: url("./Letra/get_schwifty.ttf") format("opentype");
+}
+
+.titulo{
+  font-family: RyM;
+  text-align: center;
+  color: rgb(140, 220, 20);
+  text-shadow: 3px 3px rgba(2, 129, 2, 0.87);
+}
+
+img{
+  box-shadow: 6px 6px greenyellow;
+  margin-bottom:8px ;
+}
+
+h3{
+  font-family:RyM;
+  color: rgb(184, 6, 6);
+}
+
+p{
+  font-family:cursive;
+  color: rgb(54, 184, 6);
+}
+
+@media only screen and (min-width: 750px) {
+  .contenedor{
+    margin: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
+
+.cont{display:none}
+.cont2{display: block;}
+
+.carta2{display:none}
+.carta{display: block;}
+
+#zelda{
+  text-decoration: none;
+  font-family: cursive;
+  color: rgb(184, 6, 6);
+}
