@@ -6,9 +6,17 @@ const Personajes=()=>{
     const [personajes, setPersonajes]=useState([])
 
     useEffect(()=>{
-        fetch('https://rickandmortyapi.com/api/character')
+        fetch('https://rickandmortyapi.com/api/character?page=13')
         .then(response=>response.json())
         .then(data=>setPersonajes(data.results))
+    },[])
+
+    const [personaje, setPersonaje]=useState([])
+
+    useEffect(()=>{
+        fetch('https://rickandmortyapi.com/api/character')
+        .then(response=>response.json())
+        .then(data=>setPersonaje(data.results))
     },[])
 
     const[style, setStyle]=useState("cont");
@@ -40,6 +48,27 @@ const Personajes=()=>{
         <Router>
             <div>
                 <div>
+                    {
+                        personaje.map(item=>(
+                            <div key={item.id} className="contenedor">
+                                <img src={item.image} alt={item.name}/>
+                                <div className="dos">
+                                    <h3>Nombre: {item.name}</h3>
+                                    <p><Link to="/" className={stilo} onClick={uno} id="zelda">Mas informacion</Link></p>
+                                    <div className={style}>
+                                        <div>
+                                            <p>Especie: {item.species}</p>
+                                            <p>Estado: {item.status}</p>
+                                            <p>Origen: {item.origin.name}</p>
+                                            <p>Localizacion: {item.location.name}</p>
+                                            <p>Genero: {item.gender}</p>
+                                            <p><Link to="/" onClick={dos} id="zelda">Menos informacion</Link></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    },
                     {
                         personajes.map(item=>(
                             <div key={item.id} className="contenedor">
